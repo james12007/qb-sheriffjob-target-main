@@ -23,7 +23,7 @@ local function CreateDutyBlips(playerId, playerLabel, playerJob, playerLocation)
         SetBlipRotation(blip, math.ceil(playerLocation.w))
         SetBlipScale(blip, 1.0)
         if playerJob == "sheriff" then
-            SetBlipColour(blip, 38)
+            SetBlipColour(blip, 21)
         else
             SetBlipColour(blip, 5)
         end
@@ -137,7 +137,7 @@ RegisterNetEvent('sheriff:client:sendBillingMail', function(amount)
 end)
 
 RegisterNetEvent('sheriff:client:UpdateBlips', function(players)
-    if PlayerJob and (PlayerJob.name == 'sheriff' or PlayerJob.name == 'ambulance') and
+    if PlayerJob and (PlayerJob.name == 'sheriff' or PlayerJob.name == 'ambulance' or PlayerJob.name == 'police') and
         onDuty then
         if DutyBlips then
             for k, v in pairs(DutyBlips) do
