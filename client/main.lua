@@ -137,7 +137,7 @@ RegisterNetEvent('sheriff:client:sendBillingMail', function(amount)
 end)
 
 RegisterNetEvent('sheriff:client:UpdateBlips', function(players)
-    if PlayerJob and (PlayerJob.name == 'sheriff' or PlayerJob.name == 'ambulance' or PlayerJob.name == 'police') and
+    if PlayerJob and (PlayerJob.name == 'sheriff' or PlayerJob.name == 'ambulance' or PlayerJob.name == 'police' or Playerjob.name == 'sasp') and
         onDuty then
         if DutyBlips then
             for k, v in pairs(DutyBlips) do
