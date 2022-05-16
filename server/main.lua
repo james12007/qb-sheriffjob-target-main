@@ -12,7 +12,7 @@ local function UpdateBlips()
     local dutyPlayers = {}
     local players = QBCore.Functions.GetQBPlayers()
     for k, v in pairs(players) do
-        if (v.PlayerData.job.name == "sheriff" or v.PlayerData.job.name == "ambulance") and v.PlayerData.job.onduty then
+        if (v.PlayerData.job.name == "sheriff" or v.PlayerData.job.name == "ambulance" or v.PlayerData.job.name == "police") and v.PlayerData.job.onduty then
             local coords = GetEntityCoords(GetPlayerPed(v.PlayerData.source))
             local heading = GetEntityHeading(GetPlayerPed(v.PlayerData.source))
             dutyPlayers[#dutyPlayers+1] = {
@@ -656,7 +656,7 @@ RegisterNetEvent('sheriff:server:EscortPlayer', function(playerId)
     local Player = QBCore.Functions.GetPlayer(source)
     local EscortPlayer = QBCore.Functions.GetPlayer(playerId)
     if EscortPlayer then
-        if (Player.PlayerData.job.name == "sheriff" or Player.PlayerData.job.name == "ambulance") or (EscortPlayer.PlayerData.metadata["ishandcuffed"] or EscortPlayer.PlayerData.metadata["isdead"] or EscortPlayer.PlayerData.metadata["inlaststand"]) then
+        if (Player.PlayerData.job.name == "sheriff" or Player.PlayerData.job.name == "ambulance" or Player.PlayerData.job.name == "police") or (EscortPlayer.PlayerData.metadata["ishandcuffed"] or EscortPlayer.PlayerData.metadata["isdead"] or EscortPlayer.PlayerData.metadata["inlaststand"]) then
             TriggerClientEvent("sheriff:client:GetEscorted", EscortPlayer.PlayerData.source, Player.PlayerData.source)
         else
             TriggerClientEvent('QBCore:Notify', src, Lang:t("error.not_cuffed_dead"), 'error')
