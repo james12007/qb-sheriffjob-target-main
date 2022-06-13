@@ -24,6 +24,8 @@ local function CreateDutyBlips(playerId, playerLabel, playerJob, playerLocation)
         SetBlipScale(blip, 1.0)
         if playerJob == "sheriff" then
             SetBlipColour(blip, 21)
+        elseif playerJob == "police" then
+            SetBlipColour(blip, 38)
         else
             SetBlipColour(blip, 5)
         end
