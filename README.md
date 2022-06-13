@@ -298,3 +298,19 @@ Config.ClothingRooms = {
             }
         }
     },
+
+## Add in qb-policejob\client\main.lua
+Change this from line 25
+        if playerJob == "police" then
+            SetBlipColour(blip, 38)
+        else
+            SetBlipColour(blip, 5)
+        end
+Change to
+        if playerJob == "police" then
+            SetBlipColour(blip, 38)
+        elseif playerJob == "sheriff" then
+            SetBlipColour(blip, 21)
+        else
+            SetBlipColour(blip, 5)
+        end
